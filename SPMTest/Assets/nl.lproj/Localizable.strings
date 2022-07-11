@@ -1,0 +1,12 @@
+"navigation.title.movies" = "Movies";
+"label.not_available" = "NA";
+"label.episode" = "Aflevering";
+"label.director" = "Regisseur";
+"label.producer" = "Producent";
+"label.release_date" = "Publicatiedatum";
+"label.created_at" = "Gemaakt bij";
+"label.edited_at" = "Bewerkt om";
+"label.opening_crawl" = "Openingscrawl";
+"error.common" = "Error";
+"alert.ok" = "ok";
+"error.something_wrong" = "Het lijkt erop dat er iets mis is gegaan, probeer het later opnieuw.";

@@ -1,0 +1,12 @@
+"navigation.title.movies" = "Movies";
+"label.not_available" = "NA";
+"label.episode" = "Episode";
+"label.director" = "Director";
+"label.producer" = "Producer";
+"label.release_date" = "Release Date";
+"label.created_at" = "Created at";
+"label.edited_at" = "Edited at";
+"label.opening_crawl" = "Opening crawl";
+"error.common" = "Error";
+"alert.ok" = "ok";
+"error.something_wrong" = "It seems something went wrong, please try again later.";

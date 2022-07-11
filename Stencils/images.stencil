@@ -1,0 +1,49 @@
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+// swiftformat:disable all
+// swiftlint:disable all
+
+{% macro catalogsBlock catalogs %}
+  {% if catalogs.count > 1 or param.forceFileNameEnum %}
+  {% for catalog in catalogs %}
+  enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call assetsBlock catalog.assets %}{% endfilter %}
+  }
+  {% endfor %}
+  {% else %}
+  {% call assetsBlock catalogs.first.assets %}
+  {% endif %}
+{% endmacro %}
+{% macro assetsBlock assets %}
+  {% for asset in assets %}
+  {% if asset.type == "image" %}
+  {% if framework == "SwiftUI" %}
+  static var {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: Image { Image("{{asset.value}}") }
+  {% elif framework == "UIKit" %}
+  static var {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: UIImage { UIImage(named: "{{asset.value}}")! }
+  {% endif %}
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call assetsBlock asset.items %}{% endfilter %}
+  }
+  {% elif asset.items %}
+  {% call casesBlock asset.items %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+{% set framework %}{{"SwiftUI"}}{% endset %}
+import SwiftUI
+
+// MARK: - Image
+
+extension Image {
+  {% call catalogsBlock catalogs %}
+}
+
+{% set framework %}{{"UIKit"}}{% endset %}
+import UIKit
+
+// MARK: - UIImage
+
+extension UIImage {
+  {% call catalogsBlock catalogs %}
+}
