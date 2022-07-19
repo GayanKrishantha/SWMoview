@@ -1,6 +1,6 @@
 // Created on 11/07/2022
 
-@testable import SPMTest
+@testable import SWMoviewsTest
 import XCTest
 
 class SPMTestTests: XCTestCase {
