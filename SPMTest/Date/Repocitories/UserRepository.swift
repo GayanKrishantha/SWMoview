@@ -5,12 +5,12 @@ import Combine
 import Foundation
 import PromiseKit
 
-protocol UserRepository: AnyObject {
+protocol MovieRepository: AnyObject {
     var filmResponse: FilmResponse? { get }
     func getFilmResponse() -> Promise<FilmResponse>
 }
 
-final class UserRepositoryImpl: UserRepository {
+final class MovieRepositoryImpl: MovieRepository {
     private let publicNetwork: Network
 
     init(publicNetwork: Network) {

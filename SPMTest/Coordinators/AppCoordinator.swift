@@ -20,7 +20,7 @@ final class AppCoordinatorImpl: AppCoordinator {
     func start() {
         let coordinator = FilmCordinatorImpl(navigationController: navigationController)
         let viewModel = FilmListViewModel(
-            userRepository: dependencyContainer.userRepository, coordinator: coordinator
+            movieRepository: dependencyContainer.movieRepository, coordinator: coordinator
         )
 
         let viewController = FilmListViewController(

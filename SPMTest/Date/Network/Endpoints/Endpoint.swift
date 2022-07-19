@@ -14,8 +14,7 @@ struct Endpoint: URLConvertible {
     var queryItems: [URLQueryItem]?
 
     static func swApp(path: String, with queryItems: [URLQueryItem]? = nil) -> Endpoint {
-        // Endpoint(baseURL: .swApp, path: path, queryItems: queryItems)
-        Endpoint(baseURL: URL(string: "https://swapi.dev/api/")!, path: path, queryItems: queryItems)
+        Endpoint(baseURL: .swApp, path: path, queryItems: queryItems)
     }
 }
 

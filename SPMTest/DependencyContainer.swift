@@ -12,7 +12,7 @@ final class DependencyContainer {
     private lazy var publicNetwork: Network = NetworkManager(
         session: publicSession
     )
-    private(set) lazy var userRepository: UserRepository = UserRepositoryImpl(
+    private(set) lazy var movieRepository: MovieRepository = MovieRepositoryImpl(
         publicNetwork: publicNetwork
     )
 }

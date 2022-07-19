@@ -10,10 +10,10 @@ class FilmListViewModel: ObservableObject {
     @Published private(set) var films: [Film] = []
 
     private let coordinator: FilmCordinator
-    private let userRepository: UserRepository
+    private let movieRepository: MovieRepository
 
-    init(userRepository: UserRepository, coordinator: FilmCordinator) {
-        self.userRepository = userRepository
+    init(movieRepository: MovieRepository, coordinator: FilmCordinator) {
+        self.movieRepository = movieRepository
         self.coordinator = coordinator
     }
 
@@ -27,7 +27,7 @@ class FilmListViewModel: ObservableObject {
         isLoading = true
 
         firstly {
-            userRepository.getFilmResponse()
+            movieRepository.getFilmResponse()
         }
         .done { filmResponse in
             self.films = filmResponse.movies?.sorted(by: { $0.episodeId! < $1.episodeId! }) ?? []

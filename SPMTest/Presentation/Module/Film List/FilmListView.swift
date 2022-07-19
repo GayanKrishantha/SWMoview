@@ -26,7 +26,9 @@ struct FilmListView: View {
         .padding(.top, 0)
         .background(Color.neutral10.edgesIgnoringSafeArea(.bottom))
         .onAppear(perform: viewModel.onAppear)
+        .alert(item: $viewModel.alertMessage, content: Alert.init)
     }
+    
     
     var movieListSearch: some View {
         ForEach(viewModel.searchResults(allFilms: viewModel.films,
@@ -52,3 +54,27 @@ struct FilmListView: View {
     }
 }
 
+struct FilmListView_Previews: PreviewProvider {
+    private static var viewModel: FilmListViewModel {
+        let dependencyContainer = DependencyContainer()
+        let navigationController = SWAPINavigationController()
+        let coordinator = FilmCordinatorImpl(navigationController: navigationController)
+        return FilmListViewModel(movieRepository: dependencyContainer.movieRepository, coordinator: coordinator)
+    }
+
+    static var previews: some View {
+        Group {
+            FilmListView(viewModel: viewModel)
+                .previewDevice("iPhone 12")
+
+            FilmListView(viewModel: viewModel)
+                .previewDevice("iPhone 12 Pro Max")
+
+            FilmListView(viewModel: viewModel)
+                .previewDevice("iPhone SE (2nd generation)")
+
+            FilmListView(viewModel: viewModel)
+                .previewDevice("iPhone SE (1st generation)")
+        }
+    }
+}

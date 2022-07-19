@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SW_API_HOST</key>
-	<string>https://swapi.dev/api/</string>
+	<string>swapi.dev</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

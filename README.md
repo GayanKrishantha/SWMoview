@@ -2,15 +2,19 @@
 
 SWMovies iOS Application 
 
+## Technical Stack
+- Swift Ui
+- Combine
+- PromisKit
+
 ## App Requirement
 
-Create a simple app using the SWAPI (https://swapi.dev/) to populate the application with data. For the application, make sure the following features are available:
+App using the SWAPI (https://swapi.dev/) to populate the application with data. For the application, make sure the following features are available:
 
 - A list displaying Star Wars films
 - A detail page, displaying a specific Star Wars film details
-- A filtering search field where you can filter the list on director, opening_crawl, producers and movie title On top of that, use at least (but not restricted to) the following:
-- SwiftUI for the presentation layer
-- Any architecture of choice
+- A filtering search field where you can filter the list on director, opening_crawl, producers and movie title On top of that.
+- SwiftUI for the presentation layer.
 - Patterns to decouple your code to emphasise testability (e.g. Protocol Orientated Programming, etc.)
 
 ## SwiftGen usage

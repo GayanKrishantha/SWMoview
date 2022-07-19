@@ -1,6 +1,6 @@
 // Created on 11/07/2022
 
-@testable import SWMoviewsTest
+@testable import SPMTest
 import XCTest
 
 class SPMTestTests: XCTestCase {
@@ -43,10 +43,12 @@ class SPMTestTests: XCTestCase {
         let searchText = "Tes"
         let array: [Film] = [testData()]
         
-        let vm = FilmListViewModel(userRepository: dependencyContainer.userRepository,
+        let vm = FilmListViewModel(movieRepository: dependencyContainer.movieRepository,
                                    coordinator: coordinator)
         //when
         let filteredValue = vm.filterMovies(films: array, searchText: searchText)
+        
+        //then
         XCTAssertTrue(!filteredValue.isEmpty)
     }
     
@@ -59,7 +61,7 @@ class SPMTestTests: XCTestCase {
         let array: [Film] = [testData()]
         
         //when
-        let vm = FilmListViewModel(userRepository: dependencyContainer.userRepository,
+        let vm = FilmListViewModel(movieRepository: dependencyContainer.movieRepository,
                                    coordinator: coordinator)
         let filteredValue = vm.filterMovies(films: array, searchText: searchText)
         
@@ -76,7 +78,7 @@ class SPMTestTests: XCTestCase {
         let array: [Film] = [testData()]
         
         //when
-        let vm = FilmListViewModel(userRepository: dependencyContainer.userRepository,
+        let vm = FilmListViewModel(movieRepository: dependencyContainer.movieRepository,
                                    coordinator: coordinator)
         let filteredValue = vm.filterMovies(films: array, searchText: searchText)
         
@@ -93,7 +95,7 @@ class SPMTestTests: XCTestCase {
         let array: [Film] = [testData()]
         
         //when
-        let vm = FilmListViewModel(userRepository: dependencyContainer.userRepository,
+        let vm = FilmListViewModel(movieRepository: dependencyContainer.movieRepository,
                                    coordinator: coordinator)
         let filteredValue = vm.searchResults(allFilms: array, searchText: searchText)
         
@@ -110,7 +112,7 @@ class SPMTestTests: XCTestCase {
         let array: [Film] = [testData()]
         
         //when
-        let vm = FilmListViewModel(userRepository: dependencyContainer.userRepository,
+        let vm = FilmListViewModel(movieRepository: dependencyContainer.movieRepository,
                                    coordinator: coordinator)
         let filteredValue = vm.searchResults(allFilms: array, searchText: searchText)
         
@@ -126,7 +128,7 @@ class SPMTestTests: XCTestCase {
         let array = testData()
         
         //when
-        let vm = FilmListViewModel(userRepository: dependencyContainer.userRepository,
+        let vm = FilmListViewModel(movieRepository: dependencyContainer.movieRepository,
                                    coordinator: coordinator)
         let filteredValue = vm.showDeils(film: array)
         
@@ -150,26 +152,3 @@ extension SPMTestTests {
         return film
     }
 }
-
-/*
-  "count": 6,
-  "next": null,
-  "previous": null,
-  "results": [
-  {
-     "title": "A New Hope",
-     "episode_id": 4,
-     "opening_crawl": "It is  to the galaxy....",
-     "director": "George Lucas",
-     "producer": "Gary Kurtz, Rick McCallum",
-     "release_date": "1977-05-25",
-     "characters": [],
-     "planets": [],
-     "starships": [],
-     "vehicles": [],
-     "species": [],
-     "created": "2014-12-10T14:23:31.880000Z",
-     "edited": "2014-12-20T19:49:45.256000Z",
-     "url": "https://swapi.dev/api/films/1/"
- }]
- */

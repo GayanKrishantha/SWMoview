@@ -14,9 +14,9 @@ extension Endpoint {
         var path: String {
             switch self {
             case .all:
-                return "films/"
+                return "/api/films/"
             case .details:
-                return "swapi.dev/api/films/:id/"
+                return "/api/films/:id/"
             }
         }
     }
